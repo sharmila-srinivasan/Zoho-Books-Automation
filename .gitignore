@@ -1,0 +1,18 @@
+# Secrets - NEVER commit
+.env
+
+# Python / uv
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+.ruff_cache/
+
+# Runtime output (may contain financial data and page captures)
+logs/*
+!logs/.gitkeep
+data/*
+!data/.gitkeep
+
+# Saved browser login session (contains Zoho cookies)
+data/browser-profile/

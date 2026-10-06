@@ -1,0 +1,35 @@
+<!doctype html>
+<!-- SYNTHETIC test page imitating an "edit payment" form with live totals.
+     Not a copy of Zoho's markup. -->
+<html>
+<body>
+  <div class="field"><label>Customer Name</label><div><input id="customer" value="ABC Company"></div></div>
+  <div class="field"><label for="received">Amount Received</label>
+    <div class="input-group"><span>USD</span><input id="received" value="10000.00"></div></div>
+  <div class="field"><label>Payment #</label><div><input value="PAY-001"></div></div>
+  <div class="field"><label>Payment Date</label><div><input value="06/10/2026"></div></div>
+
+  <table id="invoices">
+    <tr><th>Date</th><th>Invoice Number</th><th>Invoice Amount</th><th>Amount Due</th><th>Payment</th></tr>
+    <tr><td>01/09/2026</td><td>INV-1001</td><td>USD 2,000.00</td><td>USD 2,000.00</td><td><input class="pay" value=""></td></tr>
+    <tr><td>02/09/2026</td><td>INV-1002</td><td>USD 5,000.00</td><td>USD 1,500.00</td><td><input class="pay" value=""></td></tr>
+  </table>
+
+  <div><span>Amount used for Payments</span><span id="used">6,000.00</span></div>
+  <div><span>Amount in Excess</span><span id="excess">4,000.00</span></div>
+  <button id="save" onclick="document.getElementById('invoices').remove(); this.remove();">Save</button>
+
+  <script>
+    // Recalculate "Amount in Excess" like an accounting form would.
+    var BASE_USED = 6000;
+    function recalc() {
+      let applied = 0;
+      document.querySelectorAll('input.pay').forEach(i => applied += parseFloat(i.value || '0'));
+      const received = parseFloat(document.getElementById('received').value);
+      const excess = received - BASE_USED - applied;
+      document.getElementById('excess').innerText = excess.toLocaleString('en-US', {minimumFractionDigits: 2});
+    }
+    document.querySelectorAll('input.pay').forEach(i => i.addEventListener('change', recalc));
+  </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!doctype html>
+<!-- SYNTHETIC test page. Not a copy of Zoho's markup: it only exercises the
+     heading-based table reader. Real Zoho markup must be verified with --inspect. -->
+<html>
+<body>
+  <nav><a href="#">Home</a> <a href="#">Sales</a> <a href="#">Payments Received</a></nav>
+  <table>
+    <thead>
+      <tr><th><input type="checkbox"></th><th>Date</th><th>Payment #</th><th>Reference Number</th>
+          <th>Customer Name</th><th>Mode</th><th>Amount</th><th>Unused Amount</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><input type="checkbox"></td><td>06/10/2026</td><td><a href="#p1">PAY-001</a></td><td>REF-1</td>
+          <td>Amazon US</td><td>Bank</td><td>$10,000.00</td><td>$4,000.00</td></tr>
+      <tr><td><input type="checkbox"></td><td>05/10/2026</td><td><a href="#p2">PAY-002</a></td><td></td>
+          <td>Amazon UK</td><td>Bank</td><td>£7,500.00</td><td>£0.00</td></tr>
+      <tr><td colspan="8">Footer row that must be ignored</td></tr>
+    </tbody>
+  </table>
+</body>
+</html>

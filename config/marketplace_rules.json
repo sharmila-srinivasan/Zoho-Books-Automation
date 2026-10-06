@@ -1,0 +1,26 @@
+{
+  "_help": [
+    "How the automation recognises which marketplace a Payment Received belongs to.",
+    "A payment is matched when ANY keyword appears as a whole word in ANY of 'fields_to_search'.",
+    "A payment matching NO marketplace, or MORE THAN ONE, is never used.",
+    "Allowed fields: customer, reference, notes, deposit_to.",
+    "Built from the real Zoho customer names (2026-10-06) and confirmed by the user:",
+    "  US = 'Amazon US' only; 'EBAY US' / 'Walmart US' / 'Shopify US' belong to eBay / Walmart / Shopify.",
+    "  'Amazon Mexico ($)' (USD) counts as Mexico.",
+    "  Deliberately matched by NO rule (never used): 'Amazon DE Fee Reversal', 'Souq.com'."
+  ],
+  "reviewed": true,
+  "fields_to_search": ["customer"],
+  "marketplaces": {
+    "US":      { "keywords": ["Amazon US"] },
+    "UK":      { "keywords": ["Amazon UK"] },
+    "eBay":    { "keywords": ["eBay"] },
+    "Shopify": { "keywords": ["Shopify"] },
+    "Walmart": { "keywords": ["Walmart"] },
+    "TikTok":  { "keywords": ["TikTok", "Tik Tok"] },
+    "Italy":   { "keywords": ["Amazon Italy"] },
+    "Germany": { "keywords": ["Amazon Germany"] },
+    "Canada":  { "keywords": ["Amazon Canada"] },
+    "Mexico":  { "keywords": ["Amazon Mexico"] }
+  }
+}

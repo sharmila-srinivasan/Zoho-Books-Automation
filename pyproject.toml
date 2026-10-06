@@ -1,0 +1,26 @@
+[project]
+name = "zoho-payment-reconciliation"
+version = "0.1.0"
+description = "Supervised Payment Received -> Open Invoice reconciliation for Zoho Books (Playwright)"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "playwright>=1.49",
+    "python-dotenv>=1.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+]
+
+[tool.uv]
+# This is an application, not a library: nothing to build or publish.
+package = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+markers = [
+    "browser: tests that launch a local headless browser against HTML fixtures (no Zoho access)",
+]

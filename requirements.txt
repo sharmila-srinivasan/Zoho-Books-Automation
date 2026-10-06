@@ -1,0 +1,6 @@
+# Runtime dependencies (kept in sync with pyproject.toml).
+playwright>=1.49
+python-dotenv>=1.0
+
+# Test dependency.
+pytest>=8.0
